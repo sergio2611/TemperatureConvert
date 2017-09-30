@@ -63,6 +63,7 @@
                                     <segment title="C &amp; F"/>
                                     <segment title="C &amp; K"/>
                                     <segment title="K &amp; F"/>
+                                    <segment title="F &amp; C"/>
                                 </segments>
                                 <connections>
                                     <action selector="sgmtChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="jyk-xD-gBR"/>

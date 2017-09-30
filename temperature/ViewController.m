@@ -56,13 +56,13 @@ int Old;
     int value = 0;
     switch (seg) {
         case 0:
-            value = segvalue + 32;
+            value = segvalue * 1.8 + 32;
             break;
         case 1:
             value = segvalue + 273;
             break;
         case 2:
-            value = segvalue -241;
+            value = ((segvalue -273) *1.8) +32;
             break;
         default:
             break;
@@ -88,11 +88,11 @@ int Old;
         case 0:
             if(from == 2) //from celcius
             {
-                newValue = actualValue + 32;
+                newValue = actualValue * 1.8 + 32;
             }
             else if(from == 1)
             {
-                newValue = actualValue - 241;
+                newValue = ((actualValue -273) *1.8) +32;;
             }
             break;
             
@@ -110,7 +110,7 @@ int Old;
         case 3:
             if(from == 0) //from celcius
             {
-                newValue = actualValue - 32;
+                newValue = (actualValue - 32) / 1.8;
             }
             else if(from == 1)
             {
