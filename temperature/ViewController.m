@@ -64,6 +64,10 @@ int Old;
         case 2:
             value = ((segvalue -273) *1.8) +32;
             break;
+        case 3:
+            value = (segvalue -32) /1.8;
+            break;
+        
         default:
             break;
     }
@@ -107,8 +111,9 @@ int Old;
             }
             break;
         
-        case 3:
-            if(from == 0) //from celcius
+            
+        case 2:
+            if(from == 0) //from far
             {
                 newValue = (actualValue - 32) / 1.8;
             }
@@ -116,7 +121,9 @@ int Old;
             {
                 newValue = actualValue - 273;
             }
-            break;        default:
+            break;
+        
+        default:
             break;
     }
     
@@ -148,7 +155,12 @@ int Old;
                
                newValue = actualValue - 273;
            }
-           else
+            else
+                if(old == 3)
+                {
+                    newValue = (actualValue - 32)/1.8;
+                }
+                else
            {
                newValue = actualValue;
            }
@@ -167,6 +179,11 @@ int Old;
                 newValue = actualValue - 273 ;
             }
             else
+                if(old == 3)
+                {
+                    newValue = (actualValue - 32)/1.8;
+                }
+            else
             {
                 newValue = actualValue;
             }
@@ -180,7 +197,34 @@ int Old;
             self.lblMin.text =@"273";
             self.lblMax.text = @"373";
             [self setOld:2];
+            if(old == 0 || old == 1)
+            {
             newValue = actualValue + 273 ;
+            }
+            else
+            {
+                newValue = (actualValue - 32)/1.8 + 273;
+                
+            }
+            break;
+        
+        case 3:
+            from = 0;
+            to = 2;
+            self.sliderSize.minimumValue = 32;
+            self.sliderSize.maximumValue = 212;
+            self.lblMin.text =@"32";
+            self.lblMax.text = @"212";
+            [self setOld:3];
+            if(old == 0|| old == 1)
+            {
+                newValue = (actualValue *1.8) +32 ;
+            }
+            else
+            {
+                newValue = (actualValue -273) *1.8 +32;
+            }
+            
             break;
         
         default:
